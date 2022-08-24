@@ -20,7 +20,7 @@ app.use(express.urlencoded({limit: '50mb'}));
 //app.use("/", indexRouter);
 //app.use("/users", usersRouter);
 
-app.put("/api/files", express.bodyParser({limit: '50mb'}), (req, res) => {
+app.put("/api/files", express.raw({limit: '50mb'}), (req, res) => {
   console.log('in PUT `api/files/`');
   return res.status(200).send('PUT ok!');
 });
