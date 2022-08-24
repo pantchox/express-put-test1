@@ -17,7 +17,8 @@ app.use(express.urlencoded({ extended: false, limit: "1000MB" }));
 //app.use("/", indexRouter);
 //app.use("/users", usersRouter);
 app.put("/api/files", (req, res) => {
-  return res.end("ok!");
+  console.log('in PUT `api/files/`');
+  return res.status(200).send('PUT ok!');
 });
 
 var listener = app.listen(process.env.PORT || 8080, function () {
