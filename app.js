@@ -17,7 +17,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
 app.put("/api/files", (req, res) => {
-  return res.send("ok!");
+  return res.end("ok!");
 });
 
 var listener = app.listen(process.env.PORT || 8080, function () {
