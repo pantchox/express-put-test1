@@ -1,20 +1,20 @@
 {
-  "name": "express-put-test",
-  "version": "1.0.0",
-  "description": "",
-  "main": "app.js",
-  "scripts": {
-    "start": "nodemon app.js localhost 8080"
-  },
-  "dependencies": {
-    "cookie-parser": "~1.4.4",
-    "debug": "~2.6.9",
-    "express": "*",
-    "morgan": "~1.9.1",
-    "nodemon": "1.18.4"
-  },
-  "devDependencies": {
-    "nodemon": "1.18.4"
-  },
-  "keywords": []
+    "name": "express-put-test",
+    "version": "1.0.0",
+    "description": "",
+    "main": "app.js",
+    "scripts": {
+        "start": "nodemon app.js localhost 8080"
+    },
+    "dependencies": {
+        "cookie-parser": "~1.4.4",
+        "debug": "~2.6.9",
+        "express": "~4.17.0",
+        "morgan": "~1.9.1",
+        "nodemon": "1.18.4"
+    },
+    "devDependencies": {
+        "nodemon": "1.18.4"
+    },
+    "keywords": []
 }
