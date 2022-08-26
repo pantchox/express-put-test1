@@ -54,8 +54,48 @@ app.put('/api/files', express.raw({limit: '1mb', type: '*/*'}), (req, res) => {
     return res.status(200).send(`PUT ok! - ${receivedSize} Bytes received`);
 });
 
+app.put('/api/filesx', (req, res) => {
+    express.raw({limit: '1mb', type: '*/*'})(req, res, (err) => {
+        console.log('we got error from raw body parser!', err);
+        // return res.status(500).send('ERR!');
+        return res.redirect(307, 'https://polar-horse-responsibility.glitch.me/');
+    });
+
+    // const receivedSize = Buffer.byteLength(req.body);
+    // console.log('in PUT `api/files/`', receivedSize);
+    // return res.status(200).send(`PUT ok! - ${receivedSize} Bytes received`);
+    // return res.status(200).send('PUT file ok less them 1mb!');
+    console.log('are we here yet?');
+});
+
+app.put(
+    '/api/filesy',
+    (req, res, next) => {
+        express.raw({limit: '1mb', type: '*/*'})(req, res, (err) => {
+            if (err) {
+                console.log('we got error from raw body parser!', err);
+                // return res.status(500).send('ERR!');
+                return res.redirect(307, 'https://polar-horse-responsibility.glitch.me/');
+            }
+
+            console.log('express.raw no error passed');
+            next();
+        });
+
+        // const receivedSize = Buffer.byteLength(req.body);
+        // console.log('in PUT `api/files/`', receivedSize);
+        // return res.status(200).send(`PUT ok! - ${receivedSize} Bytes received`);
+        // return res.status(200).send('PUT file ok less them 1mb!');
+    },
+    (req, res) => {
+        console.log('are we here yet?');
+        return res.status(200).send('filesy PUT ok!');
+    }
+);
+
 app.use(function (err, req, res, next) {
     if (err && err.type === 'entity.too.large') {
+        console.log('we are in err middleware!');
         // console.log(err);
 
         //res.status(<your status code>).send(<your response>);
