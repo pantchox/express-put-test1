@@ -48,7 +48,7 @@ app.put('/upload', function (req, res) {
     req.on('end', reqEnd);
 });
 
-app.put('/api/files', express.raw({limit: '1gb', type: '*/*'}), (req, res) => {
+app.put('/api/files', express.raw({limit: '1mb', type: '*/*'}), (req, res) => {
     const receivedSize = Buffer.byteLength(req.body);
     console.log('in PUT `api/files/`', receivedSize);
     return res.status(200).send(`PUT ok! - ${receivedSize} Bytes received`);
