@@ -55,7 +55,7 @@ app.put('/api/files', express.raw({limit: '1mb', type: '*/*'}), (req, res) => {
 });
 
 app.put('/api/filesx', (req, res) => {
-    express.raw({limit: '1kb', type: '*/*'})(req, res, (err) => {
+    express.raw({limit: '1mb', type: '*/*'})(req, res, (err) => {
         console.log('we got error from raw body parser!', err);
         // return res.status(500).send('ERR!');
         return res.redirect(307, 'https://polar-horse-responsibility.glitch.me/');
@@ -71,7 +71,7 @@ app.put('/api/filesx', (req, res) => {
 app.put(
     '/api/filesy',
     (req, res, next) => {
-        express.raw({limit: '1mb', type: '*/*'})(req, res, (err) => {
+        express.raw({limit: '1kb', type: '*/*'})(req, res, (err) => {
             if (err) {
                 console.log('we got error from raw body parser!', err);
                 // return res.status(500).send('ERR!');
