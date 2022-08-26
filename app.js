@@ -75,6 +75,7 @@ app.put(
             if (err) {
                 console.log('we got error from raw body parser!', err);
                 // return res.status(500).send('ERR!');
+                res.header('Connection', 'close');
                 return res.redirect(307, 'https://polar-horse-responsibility.glitch.me/');
             }
 
