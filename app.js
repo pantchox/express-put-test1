@@ -29,14 +29,14 @@ app.put('/upload', function (req, res) {
     var gotData = function (d) {
         size += d.length; // add this chunk's size to the total number of bytes received thus far
         console.log('upload chunk', size);
-        if (size > 1000000) {
-            console.log('aborting request');
-            req.removeListener('data', gotData); // we need to remove the event listeners so that we don't end up here more than once
-            req.removeListener('end', reqEnd);
-            res.header('Connection', 'close'); // with the Connection: close header set, node will automatically close the socket...
-            res.send(413, 'Upload too large'); // ... after sending a response
-            // return res.redirect(307, 'https://polar-horse-responsibility.glitch.me/');
-        }
+        // if (size > 1000000) {
+        //     console.log('aborting request');
+        //     req.removeListener('data', gotData); // we need to remove the event listeners so that we don't end up here more than once
+        //     req.removeListener('end', reqEnd);
+        //     res.header('Connection', 'close'); // with the Connection: close header set, node will automatically close the socket...
+        //     res.send(413, 'Upload too large'); // ... after sending a response
+        //     // return res.redirect(307, 'https://polar-horse-responsibility.glitch.me/');
+        // }
     };
 
     var reqEnd = function () {
